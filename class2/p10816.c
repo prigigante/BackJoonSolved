@@ -1,20 +1,35 @@
-/*
-처음에 N개 입력, M개의 확인 테스트(출력과 동일 크기)
-입력 숫자 범위는 +- 10,000,000 임
+/**
+ * 처음 입력 N개(500,000이하)
+ * 입력되는 숫자의 크기는 +-10,000,000사이
+ * 
+ * 맞춰야하는 대답의 개수는 m개( 500,000 under)
+ * range(-10000000, 10000000)
+ */
 
-해시 내부는 대충 이진트리로 대충해봐?(정렬없이)
-*/
 
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+
+#define ADD_MACRO 10000000
 
 
+int array[20000001] = {0,};
 
 int main(void){
-    int input_size =0, answer_size = 0, temp_input = 0;
-    int hash_size = 0, 
+    int case_size = 0, temp_input = 0, added_number = 0;
 
+    scanf("%d", &case_size);
+    for(int i =0; i < case_size; i++){
+        scanf("%d", &temp_input);
+        added_number = temp_input + ADD_MACRO;
+        array[added_number]++;
+    }
 
+    scanf("%d", &case_size);
+    for(int i =0; i < case_size; i++){
+        scanf("%d", &temp_input);
+        added_number = temp_input + ADD_MACRO;
+        printf("%d ", array[added_number]);
+    }
+    return 0;
 }
